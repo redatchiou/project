@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="reda" border="2" style="margin-left:100px ;margin-top:100px">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>A1</td>
+            <td>B1</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            
+            <td>A2</td>
+            <td>B2</td>
+            <td>20</td>
+
+        </tr>
+        
+        
+        
+
+    </table>
+    <form action="" border="2" style="margin-left:350px ;margin-top:-100px" id="forr">
+        <label for="">First Name : </label><br>
+        <input type="text" id="db"><br>
+        <label for="">Last Name : </label><br>
+        <input type="text" id="db"><br>
+        <label for="">Age</label><br>
+        <input type="text" id="db"> <br><br>
+        <input type="submit" value="Add" id="add"> <input type="button" value="Edit" id="edit"> <input type="reset" value="Remove" id="remove">
+    </form>
+    <script>
+        var main = document.getElementById("reda")
+    
+        let add = document.getElementById("add")
+        add.onclick = function(){
+            let newRow = document.createElement("tr")
+            for (let index = 0; index < 3; index++) {
+                let newCell = document.createElement("td")
+                newCell.textContent = document.getElementsByName("db")[index].value
+                newRow.appendChild(newCell)
+            }
+            
+            for (let index = 0; index < 3; index++) {
+                const element = document.getElementsByName("db")[index].value
+            }
+            main.appendChild(newRow)
+            
+            
+        }
+        
+        for (let i = 1; i < main.rows.length; i++) {
+            const element = main.rows[i];
+            element.onclick = function(){
+                var flag = this
+                for (let index = 0; index < 3; index++) {
+                    const element = document.getElementsByName("db")[index]
+                    element.value = this.cells[index].textContent
+                    // edit 
+                    let edit = document.getElementById("edit")
+                    edit.onclick = function(){
+                        for (let index = 0; index < 3; index++) {
+                            flag.cells[index].textContent = document.getElementsByName("db")[index].value
+                        }
+                    } 
+                }
+                
+                let remove = document.getElementById("remove")
+                remove.onclick = function(){
+                    main.deleteRow(flag.rowIndex)
+                    flag = null
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
