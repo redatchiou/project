@@ -1,5 +1,6 @@
-# project
-- [ x ] con
-- [ x ] con
-- [ x ] con
+- [x] utude de problem
+- [ ] conception
+- [ ] maquete de projet
+- [ ] creation de databases
+- [ ] connexion 
 
